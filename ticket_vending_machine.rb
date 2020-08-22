@@ -12,6 +12,13 @@ class TicketVendingMachine
     @movies = movies
   end
 
+  # def movie_price
+    
+  #     puts " : #{movies}円"
+     
+
+  # end
+
   def display_menu
     
     puts "どの映画を見ますか？"
