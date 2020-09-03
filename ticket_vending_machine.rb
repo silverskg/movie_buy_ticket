@@ -27,12 +27,12 @@ class TicketVendingMachine
     print "[0]チケットを購入する>"
   end
 
-  def display_result(customer)
-    choosed_movie = self.movies[customer.choose_movie]
-    customer.money -= choosed_movie.fee
-    puts "#{choosed_movie.title}のチケットを買ったよ！"
-    puts "#{customer.name}の所持金が#{customer.money}円になりました！"
-  end
+  # def display_result(customer)
+  #   choosed_movie = self.movies[customer.choose_movie]
+  #   customer.money -= choosed_movie.fee
+  #   puts "#{choosed_movie.title}のチケットを買ったよ！"
+  #   puts "#{customer.name}の所持金が#{customer.money}円になりました！"
+  # end
 
   def end_program
     exit

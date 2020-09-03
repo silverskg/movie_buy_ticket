@@ -1,6 +1,5 @@
 class Customer
   attr_accessor :name, :money
-
   def poket_money
     puts "#{name}の全財産・・・#{money}円"
   end
@@ -9,12 +8,18 @@ class Customer
     @name, @money, @ticket = name, money
   end
 
-  def choose_movie
-    selected_num = gets.chomp.to_i 
-    if selected_num < 0 
-      puts "該当プランが見つかりません" 
-      return
+  def cancel
+    puts "該当するプランがありません"
+    exit
+  end
+
+  def choose_movie_num(ticket_vending_machine)
+    binding.pry
+    selected_num = gets.to_i - 1
+    if selected_num < 0 || selected_num > ticket_vending_machine
+      cancel
     end
+    selected_num
   end
 
   def time_movie
@@ -23,7 +28,9 @@ class Customer
 
   def buy(ticket_vending_machine)
     ticket_vending_machine.display_menu
-    choosed_movie = ticket_vending_machine.movies[choose_movie]
+    # binding.pry
+    selected_num = choose_movie_num(ticket_vending_machine.movies.size)
+    choosed_movie = ticket_vending_machine.movies[selected_num]
     puts "#{choosed_movie[:title]}ですね"
     print "何枚購入しますか？>"
     people = gets.chomp.to_i
