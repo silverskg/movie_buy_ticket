@@ -1,6 +1,6 @@
 class TicketVendingMachine
   require 'date'
-  require './movie'
+  
 
   def movies
     @movie = [
@@ -27,12 +27,16 @@ class TicketVendingMachine
     print "[0]チケットを購入する>"
   end
 
-  # def display_result(customer)
-  #   choosed_movie = self.movies[customer.choose_movie]
-  #   customer.money -= choosed_movie.fee
-  #   puts "#{choosed_movie.title}のチケットを買ったよ！"
-  #   puts "#{customer.name}の所持金が#{customer.money}円になりました！"
-  # end
+  def purchase_screen(choosed_movie)
+    puts "#{choosed_movie[:title]}ですね"
+    print "何枚購入しますか？>"
+    $people = gets.chomp.to_i
+    $sum = choosed_movie[:fee] * $people
+    puts "合計金額は#{$sum}円になります。
+    [1]はい：[2]いいえ"
+    print "購入されますか？" 
+    
+  end
 
   def end_program
     exit
